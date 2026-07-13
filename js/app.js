@@ -26,9 +26,21 @@
       { id: 'chavin',        label: 'Chavín de Huántar' },
       { id: 'mita',          label: 'La mita colonial' },
       { id: 'independencia', label: 'La Independencia' }
+    ],
+    ciencia: [
+      { id: 'fotosintesis', label: 'Fotosíntesis' },
+      { id: 'celula',       label: 'La célula' },
+      { id: 'digestivo',    label: 'Sistema digestivo' },
+      { id: 'cadenas',      label: 'Cadenas alimenticias' }
+    ],
+    comunicacion: [
+      { id: 'sujeto',     label: 'Sujeto y predicado' },
+      { id: 'tildacion',  label: 'Tildación' },
+      { id: 'conectores', label: 'Conectores lógicos' },
+      { id: 'clases',     label: 'Clases de palabras' }
     ]
   };
-  var SUBJECT_NAMES = { mate: 'Matemáticas', historia: 'Historia del Perú' };
+  var SUBJECT_NAMES = { mate: 'Matemáticas', historia: 'Historia del Perú', ciencia: 'Ciencia y Tecnología', comunicacion: 'Comunicación' };
   var TOPIC_SUBJECT = {};
   Object.keys(META).forEach(function (k) { META[k].forEach(function (t) { TOPIC_SUBJECT[t.id] = k; }); });
   function topicLabelOf(id) {

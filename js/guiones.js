@@ -1,6 +1,7 @@
 /* ============================================================
    AOCA — Guiones del Modo Demo
-   Las 8 conversaciones pregrabadas. Funcionan SIN internet.
+   Las 16 conversaciones pregrabadas (Matemáticas, Historia,
+   Ciencia y Tecnología, Comunicación). Funcionan SIN internet.
    Fuente de verdad: references/. No modificar el contenido sin
    revisar la voz de AOCA (máx. 2 oraciones, sin etiquetas, sin
    preguntas de sí/no, jamás la respuesta final).
@@ -137,6 +138,130 @@
         'La esclavitud y el tributo indígena siguieron años después de 1821; dime qué revela eso sobre el alcance del cambio.'
       ],
       reformulate: 'Míralo así: firmar una independencia no reparte de nuevo la tierra ni el poder. Dime quiénes seguían mandando y quiénes seguían abajo tras 1821.'
+    },
+
+    // ---- Ciencia y Tecnología ----
+    fotosintesis: {
+      text: 'Una planta encerrada en un cuarto oscuro, con agua y tierra, termina muriéndose. Dime qué le está faltando para poder fabricar su alimento.',
+      eq: '',
+      replies: [
+        'Bien, apuntas a la luz. Ahora dime qué gas toma la planta del aire y qué saca de la tierra para combinarlos con esa luz.',
+        'Vas bien: dióxido de carbono del aire y agua de la tierra. Explícame qué crees que produce la planta al juntarlos con la energía de la luz.',
+        'Eso es: fabrica su propio alimento (glucosa) y libera oxígeno. Ahora dime con tus palabras por qué sin luz ese proceso no puede ocurrir.'
+      ],
+      hints: [
+        'Piensa dónde crecen mejor las plantas: junto a una ventana o en un sótano. Eso te dice qué elemento necesitan.',
+        'La planta no come del suelo como nosotros; toma agua por la raíz y un gas por las hojas. ¿Qué gas exhalamos nosotros que ellas aprovechan?',
+        'La luz une el agua y el dióxido de carbono. Dime qué sustancia con azúcar obtiene la planta y qué gas suelta al final.'
+      ],
+      reformulate: 'Míralo así: la hoja es como una pequeña cocina que necesita tres ingredientes: luz, agua y un gas del aire. Dime cuál de los tres falta en el cuarto oscuro.'
+    },
+    celula: {
+      text: 'Una célula de tu piel y una célula de una hoja se ven distintas, pero comparten varias partes. Dime qué parte crees que dirige lo que hace cualquier célula.',
+      eq: '',
+      replies: [
+        'Bien, el núcleo. Ahora dime qué parte rodea a toda la célula y decide qué entra y qué sale de ella.',
+        'Correcto, la membrana. La célula vegetal tiene además una capa rígida por fuera que la animal no tiene; dime cómo se llama y para qué serviría.',
+        'Eso es: la pared celular le da rigidez a la vegetal. Ahora explícame con tus palabras por qué la célula de la hoja puede hacer fotosíntesis y la de tu piel no.'
+      ],
+      hints: [
+        'Piensa en quién "da las órdenes", como el cerebro que guarda la información. Suele estar en el centro.',
+        'Imagina un muro con una puerta: la puerta controla el paso. ¿Qué parte hace ese control en la célula?',
+        'La célula vegetal tiene cloroplastos verdes y una capa dura por fuera. Dime cuál de esas dos le falta a la célula animal.'
+      ],
+      reformulate: 'Piensa en la célula como una casa: una dirección (núcleo), una puerta que filtra (membrana) y, en las plantas, un muro extra. Dime cuál de esas partes manda sobre las demás.'
+    },
+    digestivo: {
+      text: 'Muerdes una manzana y minutos después ya no está en tu boca, pero tampoco desapareció por arte de magia. Dime dónde empieza a transformarse ese alimento apenas entra a tu cuerpo.',
+      eq: '',
+      replies: [
+        'Bien, en la boca. Además de masticar, la saliva ya empieza a deshacerla; dime hacia qué órgano baja el alimento después de que tragas.',
+        'Correcto: baja por el esófago hasta el estómago, donde los jugos la deshacen más. Dime en qué órgano largo y enrollado crees que se absorben los nutrientes.',
+        'Eso es: en el intestino delgado los nutrientes pasan a la sangre. Ahora explícame con tus palabras por qué masticar bien al inicio ayuda a todo el resto del proceso.'
+      ],
+      hints: [
+        'Piensa en lo primero que haces con la comida antes de tragarla. ¿Con qué la partes y la mezclas con saliva?',
+        'Al tragar, la comida no salta directo al estómago: baja por un "tubo". ¿Cómo se llama ese conducto?',
+        'Los nutrientes pasan a la sangre en un órgano muy largo y enrollado, después del estómago. Dime si es el intestino delgado o el grueso.'
+      ],
+      reformulate: 'Imagina la comida como un viaje: boca → tubo → bolsa que la deshace → tubo largo que absorbe. Dime qué órgano cumple el papel de esa "bolsa que la deshace".'
+    },
+    cadenas: {
+      text: 'En un campo hay pasto, saltamontes que se lo comen y ranas que se comen a los saltamontes. Dime quién fabrica su propio alimento y por eso arranca la cadena.',
+      eq: '',
+      replies: [
+        'Bien, el pasto es el productor porque hace fotosíntesis. Dime entonces cómo llamarías al saltamontes, que no fabrica su alimento sino que se lo come a otro.',
+        'Correcto, es un consumidor. La rana también consume al comerse al saltamontes; dime qué les pasaría a las ranas si desaparecieran todos los saltamontes.',
+        'Eso es: sin saltamontes las ranas se quedan sin alimento y disminuyen. Ahora explícame con tus palabras por qué el pasto es tan importante para toda la cadena.'
+      ],
+      hints: [
+        'Solo uno de los tres no necesita comerse a otro: usa la luz del sol para alimentarse. ¿Cuál es?',
+        'Al que fabrica su alimento lo llamamos productor; al que se lo come, consumidor. ¿En qué grupo entra el saltamontes?',
+        'Piensa en una fila donde cada uno depende del anterior. Si quitas un eslabón del medio, dime qué pasa con el que venía después.'
+      ],
+      reformulate: 'Imagina la cadena como flechas de energía: pasto → saltamontes → rana, donde cada flecha significa "sirve de alimento a". Dime de dónde saca su energía el pasto.'
+    },
+
+    // ---- Comunicación ----
+    sujeto: {
+      text: 'En la oración "Las jugadoras de mi colegio ganaron el campeonato", una parte dice de quién se habla y otra dice qué hizo. Dime cuál nombra de quién estamos hablando.',
+      eq: '',
+      replies: [
+        'Bien, "las jugadoras de mi colegio" es el sujeto. Dime ahora qué parte de la oración cuenta lo que ese sujeto hizo.',
+        'Correcto, "ganaron el campeonato" es el predicado. Dentro del sujeto hay una palabra principal (el núcleo); dime cuál es la más importante de "las jugadoras de mi colegio".',
+        'Eso es: el núcleo del sujeto es "jugadoras". Ahora explícame con tus palabras qué te preguntarías para encontrar el sujeto en cualquier oración.'
+      ],
+      hints: [
+        'Pregúntate: ¿de quién o de qué se está hablando en la oración? Esa respuesta es el sujeto.',
+        'Lo que dice qué ocurre o qué hace forma la otra parte de la oración. ¿Cómo se llama esa parte?',
+        'El núcleo del sujeto suele ser un sustantivo. En "las jugadoras de mi colegio", dime qué palabra es el nombre principal.'
+      ],
+      reformulate: 'Piensa en una foto: el sujeto es "quién sale" y el predicado es "qué está haciendo". Dime quién sale en la foto de esa oración.'
+    },
+    tildacion: {
+      text: 'Las palabras "árbol", "canción" y "médico" llevan tilde, pero por razones distintas. Para empezar, dime en qué sílaba recae la fuerza de voz cuando dices "can-ción".',
+      eq: '',
+      replies: [
+        'Bien, la fuerza está en la última sílaba, "ción". A esas palabras las llamamos agudas; dime en qué letra termina "canción", porque eso decide la tilde.',
+        'Correcto: las agudas llevan tilde si terminan en n, s o vocal, y "canción" termina en n. Ahora dime dónde recae la fuerza en "árbol" e intenta clasificarla.',
+        'Eso es: "árbol" es grave (fuerza en la penúltima) y lleva tilde porque termina en "l". Ahora explícame con tus palabras la diferencia entre una palabra aguda y una grave.'
+      ],
+      hints: [
+        'Di la palabra en voz alta y alarga la sílaba que suena más fuerte. En "canción", ¿es "can" o "ción"?',
+        'Aguda = fuerza en la última sílaba, y lleva tilde si termina en n, s o vocal. ¿En qué letra termina "canción"?',
+        'Si la fuerza cae en la penúltima sílaba, la palabra es grave. En "árbol" la fuerza está en "ár": dime qué tipo es.'
+      ],
+      reformulate: 'Olvida las reglas un momento y solo escucha: en cada palabra hay una sílaba que "golpea" más fuerte. Dime cuál golpea más en "médico".'
+    },
+    conectores: {
+      text: 'Tenemos dos ideas: "Estudié toda la semana" y "aprobé el examen". Dime qué palabra pondrías en medio para mostrar que la segunda es consecuencia de la primera.',
+      eq: '',
+      replies: [
+        'Bien, "por eso" (o "por lo tanto") muestra consecuencia. Ahora imagina lo contrario: "Estudié toda la semana ___ desaprobé"; dime qué conector marcaría esa oposición.',
+        'Correcto, "pero" o "sin embargo" marcan oposición. Dime entonces qué conector usarías para solo sumar dos ideas: "Estudié ___ hice los ejercicios".',
+        'Eso es: "y" (o "además") suma ideas. Ahora explícame con tus palabras para qué sirven los conectores dentro de un texto.'
+      ],
+      hints: [
+        'Piensa en la relación: la primera idea es la causa y la segunda, el resultado. ¿Qué palabras señalan un resultado?',
+        'Ahora las dos ideas se contradicen. Busca una palabra que avise "espera, viene lo contrario".',
+        'Para unir dos ideas que van en el mismo sentido, sin oponerlas, usamos el conector más simple del español. ¿Cuál es?'
+      ],
+      reformulate: 'Piensa en los conectores como señales de tránsito entre ideas: unas dicen "por lo tanto", otras "pero", otras "y". Dime qué señal necesita el paso de "estudié" a "aprobé".'
+    },
+    clases: {
+      text: 'En la frase "el perro negro corre rápido", cada palabra cumple un papel distinto. Dime qué palabra nombra al ser del que hablamos, es decir, el sustantivo.',
+      eq: '',
+      replies: [
+        'Bien, "perro" es el sustantivo. Dime ahora qué palabra describe cómo es ese perro, o sea, la que funciona como adjetivo.',
+        'Correcto, "negro" es adjetivo porque lo describe. Dime qué palabra expresa la acción que realiza el perro.',
+        'Eso es: "corre" es el verbo, la acción. Ahora explícame con tus palabras en qué se diferencia un sustantivo de un adjetivo.'
+      ],
+      hints: [
+        'El sustantivo es un nombre: de una persona, animal o cosa. En esa frase, ¿qué palabra nombra a un animal?',
+        'El adjetivo acompaña al sustantivo y dice cómo es. Si el perro es "___", esa palabra que llena el espacio es el adjetivo.',
+        'El verbo indica lo que se hace o lo que pasa. Di la frase y busca la palabra que expresa una acción.'
+      ],
+      reformulate: 'Piensa en cada palabra como un trabajador con un oficio: uno nombra (sustantivo), otro describe (adjetivo), otro actúa (verbo). Dime cuál de "perro", "negro" o "corre" solo nombra.'
     }
   };
 
