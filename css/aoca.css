@@ -729,6 +729,24 @@ html[data-readaloud="true"] .speak-btn { opacity: 1; }
 .subject-card h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: 26px; margin: 0 0 20px; color: var(--text); }
 .subject-card .chips { display: flex; gap: 10px; flex-wrap: wrap; }
 
+.feature-intro { max-width: 62ch; margin: 0 0 34px; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 22px; }
+.feature-card { display: flex; flex-direction: column; gap: 12px; }
+.feature-card .feature-icon {
+  width: 44px; height: 44px; flex: none; border-radius: var(--radius-sm);
+  display: grid; place-items: center; color: var(--violet-bright);
+  border: 1px solid var(--violet); background: rgba(167,139,250,0.08);
+}
+.feature-card h3 { font-family: var(--font-display); font-weight: var(--w-display); font-size: 21px; margin: 4px 0 0; color: var(--text); }
+.feature-card p { font-family: var(--font-ui); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; }
+.feature-note {
+  margin: 30px 0 0; padding: 16px 20px;
+  border-left: 2px solid var(--violet); border-radius: var(--radius-sm);
+  background: var(--panel);
+  font-family: var(--font-ui); font-size: 15px; line-height: 1.6; color: var(--muted);
+}
+.feature-note strong { color: var(--text); font-weight: var(--w-semibold); }
+
 .team-intro { max-width: 60ch; margin: 0 0 34px; }
 .team-intro strong { color: var(--text); font-weight: var(--w-semibold); }
 .team-grid { display: flex; flex-direction: column; gap: 14px; max-width: 460px; }
