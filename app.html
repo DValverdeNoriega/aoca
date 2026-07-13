@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AOCA — Panel de Aprendizaje Guiado</title>
+  <link rel="icon" type="image/svg+xml" href="assets/08-app-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/aoca.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="aoca-stars" id="stars" aria-hidden="true"></div>
+
+    <div class="app-row">
+      <!-- Barra lateral -->
+      <aside class="sidebar" aria-label="Barra lateral">
+        <div style="padding:2px 6px 0;">
+          <img src="assets/04-lockup-horizontal.svg" alt="AOCA — Guía, no resuelve" width="150">
+        </div>
+
+        <div class="sidebar-user">
+          <span class="pfp"><img src="assets/02-isotipo-bicolor.svg" alt="" aria-hidden="true"></span>
+          <div style="line-height:1.3;min-width:0;">
+            <div class="name" id="user-name">Estudiante</div>
+            <div class="level">8.º grado</div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="eyebrow eyebrow--muted">Tu progreso</div>
+          <div class="level-badge">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="txt">Principiante</span>
+          </div>
+          <div class="progress-row">
+            <div class="progress" role="progressbar" aria-label="Tu progreso" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-fill" id="progress-fill" style="width:0%;"></div>
+            </div>
+            <span class="progress-value" id="progress-value">0%</span>
+          </div>
+          <div class="sidebar-hint">Avanza solo cuando llegas tú a la respuesta correcta.</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="eyebrow eyebrow--muted">Materias</div>
+          <nav id="subject-nav" style="display:flex;flex-direction:column;gap:4px;">
+            <button type="button" class="subject-row is-selected" data-subject="mate">
+              <span class="dot" aria-hidden="true"></span>
+              <span style="flex:1;text-align:left;">Matemáticas</span>
+            </button>
+            <button type="button" class="subject-row" data-subject="historia">
+              <span class="dot" aria-hidden="true"></span>
+              <span style="flex:1;text-align:left;">Historia del Perú</span>
+            </button>
+            <button type="button" class="subject-row" disabled>
+              <span class="dot" aria-hidden="true"></span>
+              <span style="flex:1;text-align:left;">Ciencia y Tecnología</span>
+              <span class="soon">Próximamente</span>
+            </button>
+            <button type="button" class="subject-row" disabled>
+              <span class="dot" aria-hidden="true"></span>
+              <span style="flex:1;text-align:left;">Comunicación</span>
+              <span class="soon">Próximamente</span>
+            </button>
+            <button type="button" class="subject-row" disabled>
+              <span class="dot" aria-hidden="true"></span>
+              <span style="flex:1;text-align:left;">Geografía</span>
+              <span class="soon">Próximamente</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <div class="innova-plate"><img src="assets/innova-school.png" alt="Innova Schools"></div>
+          <div class="credit">Innova Schools – Sede Surco Ambrosio<br>Proyecto Grupo 7</div>
+        </div>
+      </aside>
+
+      <!-- Panel principal -->
+      <main class="app-main" aria-label="Panel principal">
+        <header class="app-header">
+          <div class="grow">
+            <span class="title">Panel de Aprendizaje Guiado</span>
+          </div>
+
+          <!-- Accesibilidad -->
+          <div style="position:relative;display:flex;align-items:center;">
+            <button type="button" class="a11y-btn" id="a11y-btn" aria-label="Abrir panel de accesibilidad" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="3.6" r="1.6"></circle><path d="M4 8.2c2.6 1 5.2 1.5 8 1.5s5.4-.5 8-1.5"></path><path d="M12 9.7v5"></path><path d="M12 14.7 8.6 21"></path><path d="M12 14.7 15.4 21"></path></svg>
+            </button>
+            <div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Panel de accesibilidad" hidden>
+              <div class="head">Accesibilidad</div>
+              <div id="a11y-toggles" style="display:flex;flex-direction:column;gap:2px;">
+                <button type="button" class="a11y-toggle" role="switch" aria-checked="false" data-toggle="readAloud" aria-label="Lectura en voz alta">
+                  <span class="a11y-track"><span class="knob"></span></span>
+                  <span style="flex:1;min-width:0;">
+                    <span style="display:block;font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--text);">Lectura en voz alta</span>
+                    <span style="display:block;font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px;">AOCA lee sus mensajes en voz alta.</span>
+                  </span>
+                </button>
+                <button type="button" class="a11y-toggle" role="switch" aria-checked="false" data-toggle="voiceInput" aria-label="Responder hablando">
+                  <span class="a11y-track"><span class="knob"></span></span>
+                  <span style="flex:1;min-width:0;">
+                    <span style="display:block;font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--text);">Responder hablando</span>
+                    <span style="display:block;font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px;">Contesta con tu voz en vez de escribir.</span>
+                  </span>
+                </button>
+                <button type="button" class="a11y-toggle" role="switch" aria-checked="false" data-toggle="easyRead" aria-label="Modo lectura fácil">
+                  <span class="a11y-track"><span class="knob"></span></span>
+                  <span style="flex:1;min-width:0;">
+                    <span style="display:block;font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--text);">Modo lectura fácil</span>
+                    <span style="display:block;font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px;">Letra más grande, más espaciada, para leer sin esfuerzo.</span>
+                  </span>
+                </button>
+                <button type="button" class="a11y-toggle" role="switch" aria-checked="false" data-toggle="reduceMotion" aria-label="Reducir movimiento">
+                  <span class="a11y-track"><span class="knob"></span></span>
+                  <span style="flex:1;min-width:0;">
+                    <span style="display:block;font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--text);">Reducir movimiento</span>
+                    <span style="display:block;font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px;">Detiene las estrellas del fondo.</span>
+                  </span>
+                </button>
+              </div>
+              <div class="note"><b>Sin cronómetros, sin rachas, sin premios sonoros.</b> Es una decisión, no un olvido: la presión no ayuda a pensar.</div>
+            </div>
+          </div>
+
+          <!-- Interruptor de modo -->
+          <div class="segmented" id="mode-switch" title="Modo Demo usa guiones pregrabados y funciona sin internet. IA en vivo envía cada mensaje a la IA.">
+            <button type="button" class="is-on" data-mode="demo" aria-pressed="true">Modo Demo</button>
+            <button type="button" data-mode="live" aria-pressed="false">IA en vivo</button>
+          </div>
+
+          <button type="button" class="btn btn--secondary btn--sm" id="btn-salir">Salir</button>
+        </header>
+
+        <!-- Estado inicial (bienvenida) -->
+        <section class="welcome" id="welcome" aria-label="Inicio">
+          <h1>¡Hola, <span id="welcome-name">Estudiante</span>! <span class="accent">¿Qué analizaremos hoy?</span></h1>
+          <p class="lead aoca-readable">Recuerda: no te daré las respuestas. Las descubrimos juntos, paso a paso.</p>
+
+          <div class="welcome-cards">
+            <div class="card">
+              <h2>Actividad reciente</h2>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <div class="activity-item"><span class="check" aria-hidden="true">✓</span><span class="txt aoca-readable">Resolviste 2x + 6 = 14 por tu cuenta</span></div>
+                <div class="activity-item"><span class="check" aria-hidden="true">✓</span><span class="txt aoca-readable">Comparaste la mita colonial con el trabajo de hoy</span></div>
+                <div class="activity-item"><span class="pend" aria-hidden="true">·</span><span class="txt aoca-readable">Empezaste el Teorema de Pitágoras</span></div>
+              </div>
+            </div>
+            <div class="card card--accent">
+              <div class="eyebrow eyebrow--muted">Tip del día</div>
+              <p class="aoca-readable" style="font-size:15px;line-height:1.6;color:var(--text);margin:12px 0 0;">No pidas la pista apenas te trabes. Escribe primero lo que se te ocurra: casi siempre ya sabes por dónde empezar.</p>
+            </div>
+          </div>
+
+          <div class="welcome-topics">
+            <div class="eyebrow eyebrow--muted" style="margin-bottom:14px;">Temas de <span id="subject-name">Matemáticas</span></div>
+            <div id="chips" style="display:flex;flex-wrap:wrap;gap:10px;">
+              <button type="button" class="chip" data-topic="lineales"><span class="aoca-readable">Ecuaciones de primer grado</span></button>
+              <button type="button" class="chip" data-topic="cuadraticas"><span class="aoca-readable">Ecuaciones de segundo grado</span></button>
+              <button type="button" class="chip" data-topic="pitagoras"><span class="aoca-readable">Teorema de Pitágoras</span></button>
+              <button type="button" class="chip" data-topic="fracciones"><span class="aoca-readable">Fracciones</span></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Estado de conversación -->
+        <section class="thread" id="thread" hidden>
+          <div class="thread-inner" id="thread-inner" aria-live="polite">
+            <div class="thread-head">
+              <span class="topic" id="topic-label"></span>
+              <span class="subject" id="topic-subject"></span>
+            </div>
+            <div id="thread-messages"></div>
+          </div>
+        </section>
+
+        <!-- Barra de acciones + entrada -->
+        <div class="actionbar">
+          <div class="actionbar-inner">
+            <div class="action-buttons" id="action-buttons" hidden>
+              <button type="button" class="btn btn--secondary btn--lg" id="btn-answer">Esta es mi respuesta →</button>
+              <button type="button" class="btn btn--ghost btn--lg" id="btn-hint" disabled
+                      title="Escribe primero lo que se te ocurra, aunque no estés seguro.">Dame una pista&nbsp;·&nbsp;<span class="hint-count" id="hint-count">3 de 3</span></button>
+              <button type="button" class="btn btn--ghost btn--lg" id="btn-noentendi">No entendí la pregunta</button>
+              <button type="button" class="btn btn--ghost btn--lg" id="btn-reset">Empecemos de nuevo</button>
+            </div>
+
+            <div class="listening-note" id="listening-note" hidden>
+              <span class="listening-dot" aria-hidden="true"></span>
+              <span class="txt">Escuchando…</span>
+            </div>
+
+            <div class="composer">
+              <div class="composer-pill">
+                <input class="composer-input" id="composer-input" type="text"
+                       placeholder="Haz una pregunta o dime qué tema quieres estudiar…"
+                       aria-label="Escribe tu mensaje">
+                <button type="button" class="icon-btn mic-btn" id="mic-btn" aria-label="Responder hablando" hidden>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"></path><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+                </button>
+                <button type="button" class="icon-btn send-btn" id="send-btn" aria-label="Enviar" disabled>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"></path><path d="M13 6l6 6-6 6"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Campo de estrellas (Fase 1). En Fase 3/5 lo controlará js/app.js con el interruptor de movimiento.
+    (function () {
+      var host = document.getElementById('stars');
+      if (!host) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 70; i++) {
+        var s = document.createElement('span');
+        s.className = 'aoca-star'; s.setAttribute('data-aoca-star', '');
+        var size = (0.6 + Math.random() * 2.0).toFixed(2);
+        s.style.left = (Math.random() * 100).toFixed(3) + '%';
+        s.style.top = (Math.random() * 100).toFixed(3) + '%';
+        s.style.width = size + 'px'; s.style.height = size + 'px';
+        if (reduce) { s.style.opacity = '0.4'; }
+        else { s.style.animation = 'aoca-twinkle ' + (3 + Math.random() * 3).toFixed(2) + 's var(--ease) ' + (Math.random() * 4).toFixed(2) + 's infinite'; }
+        frag.appendChild(s);
+      }
+      host.appendChild(frag);
+    })();
+  </script>
+  <script src="js/guiones.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

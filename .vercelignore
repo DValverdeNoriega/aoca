@@ -1,0 +1,7 @@
+# references/ es solo material de consulta — NO se publica.
+references/
+
+# Dependencias y locales
+node_modules/
+.env.local
+.env

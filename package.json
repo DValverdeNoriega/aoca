@@ -1,0 +1,10 @@
+{
+  "name": "aoca",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AOCA — tutor socrático para secundaria. Guía, no resuelve.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.111.0"
+  }
+}

@@ -1,0 +1,17 @@
+# Secretos — NUNCA subir la API key
+.env.local
+.env
+.env.*.local
+
+# Dependencias
+node_modules/
+
+# Vercel
+.vercel/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+
+.vercel

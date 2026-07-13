@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AOCA — El tutor que no te da la respuesta</title>
+  <meta name="description" content="AOCA es un tutor educativo con IA que guía, no resuelve. Te hace preguntas, te da una pista a la vez y te corrige señalando dónde te equivocaste.">
+  <link rel="icon" type="image/svg+xml" href="assets/08-app-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/aoca.css">
+</head>
+<body>
+  <div class="aoca-backdrop" aria-hidden="true"></div>
+  <div class="aoca-stars" id="stars" aria-hidden="true"></div>
+
+  <div class="aoca-page">
+    <header class="landing-header">
+      <img src="assets/04-lockup-horizontal.svg" alt="AOCA — Guía, no resuelve" width="176" height="82">
+    </header>
+
+    <!-- Hero -->
+    <section class="section hero" aria-label="Presentación">
+      <h1>El tutor que no te da la respuesta.</h1>
+      <p class="sub">Te hace preguntas, te da una pista a la vez, y te corrige señalándote exactamente dónde te equivocaste. La respuesta la construyes tú.</p>
+      <div class="tag">Proyecto Grupo 7</div>
+      <div style="margin-top:34px;">
+        <a class="btn btn--fill" href="login.html">Entrar a la plataforma →</a>
+      </div>
+    </section>
+
+    <!-- La diferencia -->
+    <section class="section" aria-label="La diferencia">
+      <span class="eyebrow">La diferencia</span>
+      <h2>No todas las IA enseñan igual.</h2>
+      <div class="diff-grid">
+        <div class="diff-card diff-card--muted">
+          <div class="cap">Un chatbot cualquiera</div>
+          <div class="diff-flow">
+            <div class="step">El alumno pregunta</div>
+            <div class="arrow">↓</div>
+            <div class="step">La IA entrega la solución completa</div>
+            <div class="arrow">↓</div>
+            <div class="step">El alumno copia</div>
+            <div class="arrow">↓</div>
+            <div class="step">El alumno no aprende nada</div>
+          </div>
+        </div>
+        <div class="diff-card diff-card--aoca">
+          <div class="cap">AOCA</div>
+          <div class="diff-flow">
+            <div class="step">El alumno pregunta</div>
+            <div class="arrow">↓</div>
+            <div class="step">AOCA le devuelve una pregunta</div>
+            <div class="arrow">↓</div>
+            <div class="step">El alumno piensa</div>
+            <div class="arrow">↓</div>
+            <div class="step step--strong">El alumno llega solo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo en vivo -->
+    <section class="demo-section" aria-label="Demo en vivo">
+      <span class="eyebrow">Demo en vivo</span>
+      <h2>Una ecuación, paso a paso.</h2>
+      <p class="sub">Así guía AOCA cuando un alumno resuelve <span class="mono">3x + 5 = 20</span>.</p>
+
+      <div class="card card--raised demo-card">
+        <div class="demo-thread">
+          <div class="bubble bubble--student">¿Cómo resuelvo <span class="mono">3x + 5 = 20</span>?</div>
+          <div class="bubble bubble--aoca">Piensa en la ecuación como una balanza. Si quitas 5 de un lado, ¿qué tienes que hacer del otro para que no se incline?</div>
+          <div class="bubble bubble--student"><span class="mono">3x = 20 + 5</span>, entonces <span class="mono">3x = 25</span></div>
+          <div class="bubble bubble--aoca">Vas bien hasta la segunda línea. Fíjate en lo que le hiciste al 5: ¿aplicaste lo mismo a los dos lados?</div>
+          <div class="bubble bubble--student"><span class="mono">3x = 15</span>, entonces <span class="mono">x = 5</span> <span class="check-lime">✓</span></div>
+          <div class="bubble bubble--aoca">Correcto. Ahora explícamelo con tus palabras: ¿por qué funcionó restar 5 de los dos lados y no solo de uno?</div>
+        </div>
+
+        <div class="demo-actions">
+          <span class="btn btn--secondary">Esta es mi respuesta →</span>
+          <span class="btn btn--ghost">Dame una pista · <span class="hint-count">2 de 3</span></span>
+          <span class="btn btn--ghost">No entendí la pregunta</span>
+          <span class="btn btn--ghost">Empecemos de nuevo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section" aria-label="Cómo funciona">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Cinco pasos, siempre los mismos.</h2>
+      <div class="steps">
+        <div class="step-row"><span class="num">01</span><span class="label">El estudiante pregunta.</span></div>
+        <div class="step-row"><span class="num">02</span><span class="label">AOCA analiza la pregunta.</span></div>
+        <div class="step-row"><span class="num">03</span><span class="label">AOCA da pistas y ejemplos, nunca la solución.</span></div>
+        <div class="step-row"><span class="num">04</span><span class="label">El estudiante construye su respuesta.</span></div>
+        <div class="step-row"><span class="num">05</span><span class="label">AOCA verifica que de verdad entendió.</span></div>
+      </div>
+    </section>
+
+    <!-- Materias -->
+    <section class="section" aria-label="Materias">
+      <span class="eyebrow">Materias</span>
+      <h2>Dos materias, por ahora.</h2>
+      <div class="subject-grid">
+        <div class="card subject-card">
+          <h3>Matemáticas</h3>
+          <div class="chips">
+            <span class="chip chip--static">Ecuaciones de primer grado</span>
+            <span class="chip chip--static">Ecuaciones de segundo grado</span>
+            <span class="chip chip--static">Teorema de Pitágoras</span>
+            <span class="chip chip--static">Fracciones</span>
+          </div>
+        </div>
+        <div class="card subject-card">
+          <h3>Historia del Perú</h3>
+          <div class="chips">
+            <span class="chip chip--static">Caral</span>
+            <span class="chip chip--static">Chavín de Huántar</span>
+            <span class="chip chip--static">La mita colonial</span>
+            <span class="chip chip--static">La Independencia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pie -->
+    <footer class="landing-footer">
+      <div class="inner">
+        <div class="eyebrow eyebrow--muted">Un proyecto escolar</div>
+        <div class="org">
+          <div class="innova-plate">
+            <img src="assets/innova-school.png" alt="Innova Schools" width="64" height="64">
+          </div>
+          <div class="name">Innova Schools – Sede Surco Ambrosio</div>
+        </div>
+        <div class="credit">AOCA · Grupo 7</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Campo de estrellas — respeta "reducir movimiento" del sistema.
+    (function () {
+      var host = document.getElementById('stars');
+      if (!host) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 70; i++) {
+        var s = document.createElement('span');
+        s.className = 'aoca-star';
+        s.setAttribute('data-aoca-star', '');
+        var size = (0.6 + Math.random() * 2.0).toFixed(2);
+        s.style.left = (Math.random() * 100).toFixed(3) + '%';
+        s.style.top = (Math.random() * 100).toFixed(3) + '%';
+        s.style.width = size + 'px';
+        s.style.height = size + 'px';
+        if (reduce) { s.style.opacity = '0.4'; }
+        else { s.style.animation = 'aoca-twinkle ' + (3 + Math.random() * 3).toFixed(2) + 's var(--ease) ' + (Math.random() * 4).toFixed(2) + 's infinite'; }
+        frag.appendChild(s);
+      }
+      host.appendChild(frag);
+    })();
+  </script>
+</body>
+</html>

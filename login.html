@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AOCA — Ingresar</title>
+  <link rel="icon" type="image/svg+xml" href="assets/08-app-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/aoca.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="aoca-stars" id="stars" aria-hidden="true"></div>
+
+    <div class="login-card">
+      <div class="logo">
+        <img src="assets/06-lockup-vertical.svg" alt="AOCA — Guía, no resuelve" width="204">
+      </div>
+
+      <p class="lead">Tu tutor personalizado para aprender a pensar</p>
+
+      <form class="login-form" id="login-form" novalidate>
+        <div class="group">
+          <label class="field-label" id="nombre-label" for="aoca-nombre">Nombre</label>
+          <input class="input" id="aoca-nombre" type="text" name="nombre"
+                 placeholder="Escribe tu nombre" autocomplete="off" autocapitalize="words">
+          <span class="form-error" id="nombre-error" hidden>Escribe tu nombre para continuar</span>
+        </div>
+        <button class="btn btn--fill" type="submit" id="login-submit" disabled
+                style="width:100%;height:auto;padding:16px 20px;font-size:18px;">Ingresar a la Plataforma →</button>
+      </form>
+    </div>
+
+    <div class="login-foot">
+      <p class="credit">AOCA · Grupo 7</p>
+      <div class="org">
+        <div class="innova-plate">
+          <img src="assets/innova-school.png" alt="Innova Schools">
+        </div>
+        <span class="name">Innova Schools – Sede Surco Ambrosio</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var host = document.getElementById('stars');
+      if (host) {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < 70; i++) {
+          var s = document.createElement('span');
+          s.className = 'aoca-star'; s.setAttribute('data-aoca-star', '');
+          var size = (0.6 + Math.random() * 2.0).toFixed(2);
+          s.style.left = (Math.random() * 100).toFixed(3) + '%';
+          s.style.top = (Math.random() * 100).toFixed(3) + '%';
+          s.style.width = size + 'px'; s.style.height = size + 'px';
+          if (reduce) { s.style.opacity = '0.4'; }
+          else { s.style.animation = 'aoca-twinkle ' + (3 + Math.random() * 3).toFixed(2) + 's var(--ease) ' + (Math.random() * 4).toFixed(2) + 's infinite'; }
+          frag.appendChild(s);
+        }
+        host.appendChild(frag);
+      }
+    })();
+  </script>
+  <script>
+    // Login simulado. No se guardan datos personales: el nombre vive solo en sessionStorage.
+    (function () {
+      var form = document.getElementById('login-form');
+      var input = document.getElementById('aoca-nombre');
+      var submit = document.getElementById('login-submit');
+      var label = document.getElementById('nombre-label');
+      var error = document.getElementById('nombre-error');
+      if (!form || !input || !submit) return;
+
+      function clean() { return (input.value || '').trim(); }
+      function sync() { submit.disabled = clean().length === 0; }
+
+      function clearError() {
+        error.hidden = true;
+        label.classList.remove('is-error');
+      }
+
+      input.addEventListener('input', function () { clearError(); sync(); });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nombre = clean();
+        if (!nombre) {
+          error.hidden = false;
+          label.classList.add('is-error');
+          input.focus();
+          return;
+        }
+        try { sessionStorage.setItem('aoca_nombre', nombre); } catch (err) {}
+        window.location.href = 'app.html';
+      });
+
+      sync();
+    })();
+  </script>
+</body>
+</html>
