@@ -77,6 +77,10 @@
     subjectNav:  $('subject-nav'),
     btnSalir:    $('btn-salir'),
 
+    menuBtn:     $('menu-btn'),
+    sidebar:     $('sidebar'),
+    sidebarScrim:$('sidebar-scrim'),
+
     welcome:     $('welcome'),
     thread:      $('thread'),
     threadMsgs:  $('thread-messages'),
@@ -559,13 +563,28 @@
   // ============================================================
   //  Eventos
   // ============================================================
+  // ---- Menú lateral en mobile (drawer) ----
+  function setMenuOpen(open) {
+    if (!els.sidebar) return;
+    els.sidebar.classList.toggle('is-open', open);
+    if (els.sidebarScrim) els.sidebarScrim.classList.toggle('is-open', open);
+    if (els.menuBtn) els.menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (els.menuBtn) els.menuBtn.addEventListener('click', function () {
+    setMenuOpen(!els.sidebar.classList.contains('is-open'));
+  });
+  if (els.sidebarScrim) els.sidebarScrim.addEventListener('click', function () { setMenuOpen(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && els.sidebar && els.sidebar.classList.contains('is-open')) setMenuOpen(false);
+  });
+
   if (els.subjectNav) {
     els.subjectNav.addEventListener('click', function (e) {
       var row = e.target.closest('.subject-row');
       if (!row || row.disabled) return;
       var key = row.getAttribute('data-subject');
       // Elegir una materia regresa al panel de temas con los chips de esa materia.
-      if (key) { selectSubject(key); exitToWelcome(); }
+      if (key) { selectSubject(key); exitToWelcome(); setMenuOpen(false); }
     });
   }
   if (els.chips) {
