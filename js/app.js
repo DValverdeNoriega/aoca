@@ -319,6 +319,14 @@
     updateStartedUI();
   }
 
+  // "Salir": cierra sesión (borra el nombre) y vuelve al login.
+  function salir() {
+    try { if (ttsSupported) window.speechSynthesis.cancel(); } catch (e) {}
+    try { if (recog) recog.stop(); } catch (e) {}
+    try { sessionStorage.removeItem('aoca_nombre'); } catch (e) {}
+    window.location.href = 'login.html';
+  }
+
   // "Empecemos de nuevo": reinicia la conversación (pistas y turnos).
   // El progreso acumulado del alumno NO se borra (mide lo que ya construyó).
   function resetConversation() {
@@ -556,7 +564,8 @@
       var row = e.target.closest('.subject-row');
       if (!row || row.disabled) return;
       var key = row.getAttribute('data-subject');
-      if (key) selectSubject(key);
+      // Elegir una materia regresa al panel de temas con los chips de esa materia.
+      if (key) { selectSubject(key); exitToWelcome(); }
     });
   }
   if (els.chips) {
@@ -578,7 +587,7 @@
   if (els.btnHint)   els.btnHint.addEventListener('click', hint);
   if (els.btnNoEntendi) els.btnNoEntendi.addEventListener('click', noEntendi);
   if (els.btnReset)  els.btnReset.addEventListener('click', resetConversation);
-  if (els.btnSalir)  els.btnSalir.addEventListener('click', exitToWelcome);
+  if (els.btnSalir)  els.btnSalir.addEventListener('click', salir);
   if (els.modeSwitch) {
     els.modeSwitch.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-mode]');
