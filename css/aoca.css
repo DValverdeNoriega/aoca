@@ -802,6 +802,11 @@ html[data-readaloud="true"] .speak-btn { opacity: 1; }
     display: block; position: fixed; inset: 0; z-index: 55;
     background: rgba(0,0,0,0.55);
   }
+  /* Header compacto: el título es redundante con el saludo de bienvenida */
+  .app-header { padding: 10px 14px; gap: 8px 8px; }
+  .app-header .grow { flex: none; }
+  .app-header .title { display: none; }
+  .segmented button { padding: 0 11px; }
   .welcome-cards { grid-template-columns: 1fr; }
   .hero { padding: 40px 24px 56px; }
   .section { padding: 8px 24px 64px; }
